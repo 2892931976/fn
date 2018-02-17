@@ -288,7 +288,7 @@ func TestAppUpdate(t *testing.T) {
 		expectedError error
 	}{
 		// errors
-		{ds, logs.NewMock(), "/v1/apps/myapp", ``, http.StatusNotFound, models.ErrAppsNotFound},
+		{ds, logs.NewMock(), "/v1/apps/myapp", ``, http.StatusBadRequest, models.ErrInvalidJSON},
 
 		// success
 		{ds, logs.NewMock(), "/v1/apps/myapp", `{ "app": { "config": { "test": "1" } } }`, http.StatusOK, nil},
